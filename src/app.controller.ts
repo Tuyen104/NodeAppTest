@@ -9,4 +9,9 @@ export class AppController {
   getHealthCheck(): string {
     return this.appService.getHealthCheck();
   }
+
+  @Get('/greeting')
+  getGreeting(): string {
+    return this.appService.getGreeting();
+  }
 }
