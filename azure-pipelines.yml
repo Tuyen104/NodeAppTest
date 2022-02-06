@@ -69,4 +69,4 @@ stages:
                     WebAppName: 'tuyen-node-deployment'
                     DockerNamespace: 'tuyenregistrytest.azurecr.io'
                     DockerRepository: 'testprojecttuyen'
-                    DockerImageTag: 'latest'
+                    DockerImageTag: '$(Build.BuildId)'
