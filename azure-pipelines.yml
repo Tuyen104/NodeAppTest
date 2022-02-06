@@ -9,13 +9,13 @@ trigger:
 variables:
 
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: 'ba910198-0511-42a4-929b-247717d760f0'
+  azureSubscription: 'a1f41e1e-8cb6-45ea-b419-ac0c7a51e7a4'
 
   # Web app name
-  webAppName: 'annie-node-deploy'
+  webAppName: 'tuyen-node-deployment'
 
   # Environment name
-  environmentName: 'annie-node-deploy'
+  environmentName: 'tuyen-node-deployment'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -60,13 +60,19 @@ stages:
       vmImage: $(vmImageName)
     strategy:
       runOnce:
+
         deploy:
           steps:
           - task: AzureRmWebAppDeployment@4
             inputs:
               ConnectionType: 'AzureRM'
-              azureSubscription: 'Visual Studio Professional Subscription (a1f41e1e-8cb6-45ea-b419-ac0c7a51e7a4)'
+              azureSubscription: 'Visual Studio Professional Subscription(a1f41e1e-8cb6-45ea-b419-ac0c7a51e7a4)'
               appType: 'webAppContainer'
               WebAppName: 'tuyen-node-deployment'
-              DockerNamespace: 'testprojecttuyen'
+              deployToSlotOrASE: true
+              ResourceGroupName: 'NodeTestDeployment'
+              SlotName: 'production'
+              DockerNamespace: 'tuyenregistrytest.azurecr.io/testprojecttuyen:latest'
               DockerRepository: 'tuyenregistrytest.azurecr.io/testprojecttuyen:latest'
+              DockerImageTag: 'latest'
+          
