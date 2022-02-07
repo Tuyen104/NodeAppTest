@@ -7,6 +7,6 @@ export class AppService {
   }
 
   getGreeting(): string {
-    return 'Hello Tuyen!';
+    return 'Have a nice day!!!';
   }
 }
